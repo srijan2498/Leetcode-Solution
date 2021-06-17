@@ -1,0 +1,59 @@
+class Solution {
+public int romanToInt(String s) {
+    char[] c=s.toCharArray();
+    int len=s.length();
+    int[] arr=new int[len];
+    
+    
+    //making integer array for all different roman numbers
+    
+    for(int i=0;i<len;i++){
+        switch(c[i]){
+            case 'I':
+                arr[i]=1;
+                break;
+            case 'V':
+                arr[i]=5;
+                break;
+            case 'X':
+                arr[i]=10;
+                break;
+            case 'L':
+                arr[i]=50;
+                break;
+            case 'C':
+                arr[i]=100;
+                break;
+            case 'D':
+                arr[i]=500;
+                break;
+            case 'M':
+                arr[i]=1000;
+                break;
+        } 
+    }
+    
+    int no=0;
+    
+    
+    // Applying roman number concept- "Roman numerals are usually written largest to smallest from left to right"
+    
+    for(int i=0;i<len;i++){
+        for(int j=i+1;j<len;j++){
+            if(arr[i]>=arr[j]){
+                no=no+arr[i];
+                break;
+            }
+            else{
+                no=no-arr[i];
+                break;
+            }
+        }
+    }
+    
+    //adding last element of array to the int number
+    no=no+arr[len-1];
+    
+    return no;
+}
+}
