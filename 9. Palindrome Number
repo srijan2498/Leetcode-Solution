@@ -1,0 +1,28 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+        
+        int a,rev=0,temp=x;
+            
+        if(x<0){
+            return false;                 //returns that the negative number is not a palindrome number
+        }
+        
+        if(x%10==x){
+            return true;                 //returns that a single digit positive number is a palindrome number
+        }
+        
+        else{
+            while(x>0){                  //reverses the original number and stores the value in rev variable
+                a=x%10;
+                rev=rev*10+a;
+                x=x/10;
+            }
+            if(rev==temp){              //returns true if reverse no is equal to original no
+                return true;
+            }
+            else{
+                return false;           //if rev is not equal to original value then false is returned
+            }
+        }
+    }
+}
