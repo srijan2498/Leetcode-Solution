@@ -1,0 +1,26 @@
+class Solution {
+    public int reverse(int x) {
+        int rem;
+        Long temp=0L;
+        
+                                                         //checking for all single digit numbers
+        if(x%10==x){                                      
+            return x;
+        }
+        
+                                                         //checking for both positive and negative numbers
+        else{
+            while(x!=0){
+                rem=x%10;                                //finding the last digit
+                temp=temp*10+rem;
+                x=x/10;
+            }
+        }
+        
+                                                        //if resulting no is not within the range of int value then 0 is returned 
+        if (temp < Integer.MIN_VALUE) return 0;
+        if (temp > Integer.MAX_VALUE) return 0;
+
+        return temp.intValue();
+    }
+}
